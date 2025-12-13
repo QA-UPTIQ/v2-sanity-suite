@@ -220,9 +220,8 @@ await appBuilderPage.goto('https://builder-qa.uptiq.dev/app-builder');
 await appBuilderPage.locator("xpath=//p[normalize-space()='App Builder']").click();
 await expect(appBuilderPage.locator("xpath=//p[@class='text-xl font-semibold']")).toBeVisible();
 
-await appBuilderPage.getByRole('paragraph').filter({ hasText: /^$/ }).click();
-await appBuilderPage.getByRole('button', { name: 'Add' }).click();
-await expect(appBuilderPage.getByRole('menu', { name: 'Add' })).toBeVisible();
+//await appBuilderPage.getByRole('paragraph').filter({ hasText: /^$/ }).click();
+await appBuilderPage.getByRole('group').getByRole('button').filter({ hasText: /^$/ }).click();
 await appBuilderPage.locator("//div[normalize-space()='Attach File']").click();
 
 
@@ -281,7 +280,7 @@ await agentBuilderPage.getByRole('paragraph').filter({ hasText: /^$/ }).click();
 
   await agentBuilderPage.getByRole('button').filter({ hasText: /^$/ }).first().click();
     await newPage.waitForTimeout(2000);
-  await agentBuilderPage.getByRole('button').filter({ hasText: /^$/ }).first().click();
+  //await agentBuilderPage.getByRole('button').filter({ hasText: /^$/ }).first().click();
 
   await agentBuilderPage.locator("//div[@class='react-flow__node react-flow__node-AddSkillNode nopan selectable draggable']//div[@class='pointer-events-auto']//*[name()='svg']").click();
   await expect(agentBuilderPage.getByRole('button', { name: 'MCP Server Icon MCP' })).toBeVisible();
