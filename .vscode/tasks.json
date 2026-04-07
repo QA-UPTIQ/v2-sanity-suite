@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Instant App Test Headed",
+			"type": "shell",
+			"command": "npx playwright test --headed tests/Instant_app.spec.ts"
+		}
+	]
+}

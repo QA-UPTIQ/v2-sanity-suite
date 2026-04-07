@@ -5,7 +5,7 @@ import * as fs from 'fs';
 test.setTimeout(300000);
 
 test('login flow (email)', async ({ page }) => {
-  await page.goto('https://builder-dev.uptiq.dev/login');
+  await page.goto('https://builder-qa.uptiq.dev/login');
   await page.evaluate(() => window.moveTo(0, 0));
 
   await expect(page.getByRole('button', { name: 'Continue with Google' })).toBeVisible();
@@ -58,8 +58,11 @@ await page.getByRole('textbox', { name: 'Provide name to workspace' }).fill(`V2.
 
 // 1st Application Summery genrator
   await page.getByRole('link', { name: 'App Builder App Builder' }).click();
-  await page.getByRole('paragraph').filter({ hasText: /^$/ }).click();
-  await page.locator('.tiptap').fill('Create a Summary Generator app using the prototype provided in the attached document. The app should read the content, analyze it, and generate a clear, concise summary based on the user’s input. It must follow the layout and flow shown in the prototype and ensure the summary output is accurate, structured, and easy to understand. Also send the inputs to the attached agent and display the agent’s response. Also need one button where, on clicking Send Email, the generated summary should be sent to sagarjadhav61679@gmail.com.');
+  await page.waitForTimeout(2000);
+    await page.getByRole('paragraph').filter({ hasText: /^$/ }).click();
+    await page.waitForTimeout(2000);
+  await page.locator('.tiptap').fill('Create a Summary Generator app using the prototype provided in the attached document. The app should read the content, analyze it, and generate a clear, concise summary based on the user’s input. It must follow the layout and flow shown in the prototype and ensure the summary output is accurate, structured, and easy to understand. Also send the inputs to the attached agent and display the agents response. Also need one button where, on clicking Send Email, the generated summary should be sent to sagarjadhav61679@gmail.com.');
+  await page.waitForTimeout(2000);
   await page.getByRole('group').getByRole('button').filter({ hasText: /^$/ }).click();
   page.locator("//div[normalize-space()='Attach File']").click()
   page.locator("xpath=//p[@class='text-sm font-medium']").click()

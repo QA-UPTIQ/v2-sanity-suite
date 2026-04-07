@@ -5,7 +5,7 @@ import * as fs from 'fs';
 test.setTimeout(120000);
 
 test('login flow (email)', async ({ page }) => {
-  await page.goto('https://builder-qa.uptiq.dev/login');
+  await page.goto('https://builder-dev.uptiq.dev/login');
   await page.evaluate(() => window.moveTo(0, 0));
 
   await expect(page.getByRole('button', { name: 'Continue with Google' })).toBeVisible();
